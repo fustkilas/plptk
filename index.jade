@@ -4,26 +4,30 @@
       .quiz
 
 
-        .nanobar
-          p {{ item.number }}/9
-
+        .heading
+          p {{ item.number }} / 9 
+          .nanobar(v-bind:style="{ width: nanobar + '%' }")
+          
         .visuals
           img(v-bind:src="item.img")
+          p.score(v-if="questionIndex===9") {{ score }} / 9
 
 
         .texts
           .prelude
             p {{ item.prelude[quiz.locale] }}
 
-            p {{ item.question[quiz.locale] }}
+            p.question {{ item.question[quiz.locale] }}
 
-          .ui
-            button.nie {{ quiz.ui.no[quiz.locale] }}
-            button.yes {{ quiz.ui.yes[quiz.locale] }}
-            button.next(v-if="questionIndex<9" v-on:click="next") {{ quiz.ui.nextQ[quiz.locale] }}
+          .ui(v-if="questionIndex<9")
+            button.nie(v-on:click="nie" v-bind:disabled="noDisabled" v-bind:style="{ background: noColor }") {{ quiz.ui.no[quiz.locale] }}
+            button.tak(v-on:click="tak" v-bind:disabled="yesDisabled" v-bind:style="{ background: yesColor }") {{ quiz.ui.yes[quiz.locale] }}
+            button.next(v-on:click="next" v-bind:disabled="nextDisabled") {{ quiz.ui.nextQ[quiz.locale] }}
 
-        .messages
-          p {{ item.reply[quiz.locale] }}
+        .messages(v-if="displayToast")
+          p.toast(v-if="good") {{ quiz.bravo[quiz.locale] }}
+          p.toast(v-else) {{ quiz.sorry[quiz.locale] }}          
+          p.reply {{ item.reply[quiz.locale] }}
 
         .options
 
