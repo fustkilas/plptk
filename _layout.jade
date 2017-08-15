@@ -2,12 +2,15 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title Phleks
+    title Ziarno
     meta(name='author', content='Fust Kilas')
-    meta(name='description', content='Phleks, a dead-simple HTML5 boilerplate using Flexbox')
+    meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='phleks.css')
+    link(rel='stylesheet', href='/css/ziarno.css')
   
     
   body
     != yield
+
+    script(src='https://vuejs.org/js/vue.js')
+    script(src='/js/ziarno.js')

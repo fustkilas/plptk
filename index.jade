@@ -1,2 +1,35 @@
-h1 Phleks
-h2 A dead-simple HTML5 boilerplate using Flexbox.
+#app
+  div(v-for="(item, index) in quiz.texts")
+    div(v-show="index === questionIndex")
+      .quiz
+
+
+        .nanobar
+          p {{ item.number }}/9
+
+        .visuals
+          img(v-bind:src="item.img")
+
+
+        .texts
+          .prelude
+            p {{ item.prelude[quiz.locale] }}
+
+            p {{ item.question[quiz.locale] }}
+
+          .ui
+            button.nie {{ quiz.ui.no[quiz.locale] }}
+            button.yes {{ quiz.ui.yes[quiz.locale] }}
+            button.next(v-if="questionIndex<9" v-on:click="next") {{ quiz.ui.nextQ[quiz.locale] }}
+
+        .messages
+          p {{ item.reply[quiz.locale] }}
+
+        .options
+
+          img.lang(v-bind:src="quiz.ui.langImgURL[quiz.locale]" v-on:click="swap")
+          img.revert(src="/img/icons/revert.png" v-on:click="revert")
+          img.help(src="/img/icons/help.png")
+
+
+          
