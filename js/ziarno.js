@@ -9,13 +9,13 @@ window.onload=function(){
             yes: ["Tak", "Yes"],
             no: ["Nie", "No"],
             nextQ: ["Następne Pytanie", "Next Question"],
-            langImgURL: ["/img/icons/en.png", "/img/icons/pl.png"]
+            langImgURL: ["img/icons/en.png", "img/icons/pl.png"]
 
         },
         texts: [
             {
                 number: 1,
-                img: "/img/ilu1.jpg",
+                img: "img/ilu1.jpg",
                 answer: true,
                 prelude: [
                     "Według przewidywań naukowców w połowie XXI wieku, będziemy żyć w zupełnie innym świecie niż dzisiejszy.",
@@ -35,7 +35,7 @@ window.onload=function(){
             },
             {
                 number: 2,
-                img: "/img/ilu2.jpg",
+                img: "img/ilu2.jpg",
                 answer: true,
 
                 prelude: [
@@ -56,7 +56,7 @@ window.onload=function(){
             },
             {
                 number: 3,
-                img: "/img/ilu3.jpg",
+                img: "img/ilu3.jpg",
                 answer: true,
 
                 prelude: [
@@ -78,7 +78,7 @@ window.onload=function(){
             },
             {
                 number: 4,
-                img: "/img/ilu4.jpg",
+                img: "img/ilu4.jpg",
                 answer: true,
 
                 prelude: [
@@ -101,7 +101,7 @@ window.onload=function(){
             },
             {
                 number: 5,
-                img: "/img/ilu5.jpg",
+                img: "img/ilu5.jpg",
                 answer: true,
 
 
@@ -123,7 +123,7 @@ window.onload=function(){
             },
             {
                 number: 6,
-                img: "/img/ilu6.jpg",
+                img: "img/ilu6.jpg",
                 answer: true,
 
                 prelude: [
@@ -147,7 +147,7 @@ window.onload=function(){
             },
             {
                 number: 7,
-                img: "/img/ilu7.jpg",
+                img: "img/ilu7.jpg",
                 answer: true,
 
                 prelude: [
@@ -171,7 +171,7 @@ window.onload=function(){
             },
             {
                 number: 8,
-                img: "/img/ilu8.jpg",
+                img: "img/ilu8.jpg",
                 answer: false,
 
                 prelude: [
@@ -193,7 +193,7 @@ window.onload=function(){
             },
             {
                 number: 9,
-                img: "/img/ilu9.jpg",
+                img: "img/ilu9.jpg",
                 answer: true,
 
                 prelude: [
@@ -219,7 +219,7 @@ window.onload=function(){
             },
             {
                 number: 10,
-                img: "/img/ilu10.jpg",
+                img: "img/ilu10.jpg",
 
                 prelude: [
                     "„Przyszłość jest zbyt ważna by zostawić ją wyłącznie rynkowi i historycznemu przypadkowi.” V.Ruttan",
