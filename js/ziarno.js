@@ -5,13 +5,40 @@ window.onload=function(){
         locale: 0,
         bravo: ["Brawo! Poprawna Odpowiedź", "Bravo! Correct answer"],
         sorry: ["Niestety! Błędna odpowiedź", "Sorry! Wrong answer"],
+        correctAnswers: ["Poprawnych odpowiedzi", "Correct Answers"],
+        quote: ["„Przyszłość jest zbyt ważna by zostawić ją wyłącznie rynkowi i historycznemu przypadkowi.” V.Ruttan", "“The future may be too important to be left to either market forces or historical accident.” V. Ruttan."],
+
         ui: {
             yes: ["Tak", "Yes"],
             no: ["Nie", "No"],
             nextQ: ["Następne Pytanie", "Next Question"],
+            playAgain: ["Zagraj Ponownie", "Play Again"],
             langImgURL: ["img/icons/en.png", "img/icons/pl.png"]
 
         },
+        revert: ["Czy na pewno chcesz zagrać od początku?", "Are you sure you want to start again?"],
+
+        help: {
+            title: ["Zagraj w interaktywny QUIZ!", "Take an Interactive QUIZ!"],
+            instructions: ["Instrukcja gry", "Instructions"],
+            blurb: [
+
+                "Przeczytaj tekst ​i odpowiedz na pytanie, dotykając przycisku TAK lub NIE. Po udzieleniu odpowiedzi pokaże się rozwiązanie. Aby przejść​ do kolejnego pytania, ​dotknij przycisku​ NASTĘPNE PYTANIE. Pasek postępu ​na górze ekranu ​pokazuje, ile pytań ​pozostało do ukończenia gry. Jeśli chcesz zagrać od początku, ​dotknij ikonki (tutaj grafika ikonki)​znajdującej się w lewym dolnym rogu ekranu.",
+
+                "Read the text and answer the question by tapping YES or NO. The correct answer will then be displayed. To go to the next question, tap NEXT QUESTION. The progress bar at the top of the screen shows how many questions remain. To restart tap the icon (here the icon graphic) located in the bottom left corner of the screen."
+
+            ],
+            goodluck: [
+
+                "Powodzenia!",
+
+                "Good luck!"
+
+            ]
+
+
+        },
+
         texts: [
             {
                 number: 1,
@@ -222,8 +249,8 @@ window.onload=function(){
                 img: "img/ilu10.jpg",
 
                 prelude: [
-                    "„Przyszłość jest zbyt ważna by zostawić ją wyłącznie rynkowi i historycznemu przypadkowi.” V.Ruttan",
-                    "“The future may be too important to be left to either market forces or historical accident.” V. Ruttan."
+                    "",
+                    ""
 
                 ],
                 question: [
@@ -251,10 +278,14 @@ window.onload=function(){
             noDisabled: false,
             correct: "#a5e521",
             incorrect: "#ff9700",
-            yesColor: "ffffff",
+            yesColor: "#ffffff",
+            noColor: "#ffffff",
+            disabledColor: "#d6d6d6",
             displayToast: false,
             score: 0,
-            good: true
+            good: true,
+            showHelp: false,
+            showRevert: false
 
         },
 
@@ -263,49 +294,59 @@ window.onload=function(){
             tak: function() {
 
                 this.displayToast = true
+                this.nextDisabled = false
+                this.noColor = this.disabledColor
+
+                this.noDisabled =  true
+                this.yesDisabled =  true
 
                 if (quiz.texts[this.questionIndex].answer) {
-                    this.noDisabled =  true
-                    this.nextDisabled = false
+
                     this.yesColor = this.correct
-                    this.score++
                     this.good = true
+                    this.score++
 
                 }
                 else {
-                    this.yesDisabled = true
-                    this.nextDisabled = false
                     this.yesColor = this.incorrect
-
                     this.good = false
                 }
             },
             nie: function() {
 
                 this.displayToast = true
+                this.nextDisabled = false
+                this.yesColor = this.disabledColor
+
+                this.noDisabled =  true
+                this.yesDisabled =  true
+
 
                 if (quiz.texts[this.questionIndex].answer) {
-                    this.yesDisabled =  true
-                    this.nextDisabled = false
-                    this.noColor = this.incorrect
 
+                    this.noColor = this.incorrect
                     this.good = false
                 }
                 else {
-                    this.yesDisabled = true
-                    this.nextDisabled = false
+
                     this.noColor = this.correct
-                    this.score++
                     this.good = true
+                    this.score++
+
                 }
             },
 
             next: function() {
                 this.questionIndex++
+
                 this.nanobar = this.nanobar + 11.111111
-                this.yesDisabled =  this.noDisabled =  false
+
+                this.yesDisabled = false
+                this.noDisabled =  false
                 this.nextDisabled = true
-                this.yesColor = this.noColor = "#ffffff"
+
+                this.yesColor = "#ffffff"
+                this.noColor = "#ffffff"
                 this.displayToast = false
             },
 
@@ -325,7 +366,31 @@ window.onload=function(){
                 this.questionIndex = 0;
                 this.nanobar = 11.111111;
                 this.score = 0;
+
+                this.showHelp = false
+                this.showRevert = false
+
+            },
+
+            revertQ: function() {
+
+                this.showRevert = true
+
+            },
+
+
+            help: function() {
+
+                this.showHelp = true
+
+            },
+
+            close: function() {
+
+                this.showHelp = false
+                this.showRevert = false
             }
+
         }
     });
 

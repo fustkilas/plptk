@@ -1,3 +1,5 @@
+green = "#a5e521"
+
 @font-face
   font-family "Futura"
   src url('futura-book.otf') format('opentype')
@@ -47,20 +49,25 @@ p
 
 .visuals
   position relative
-  display grid
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   grid-area 2 / 1 / 3 / 3
 
   img
-
     max-height 100%
     max-width 100%
 
-.score
-  position absolute
-  left: 50%;
-  transform: translate(-50%, 0);
-  font-size 4em
-  color #32d2d2
+  .score
+    position absolute
+    top 15%
+    left 27%
+    
+    font-size 4em
+    color #a5e521
+    font-weight bold
+    z-index 100
 
 .texts
   display grid
@@ -76,6 +83,9 @@ p
   p+p
     margin-top 2em
     font-weight bold
+
+  h2
+    line-height 1.4
 
 p.question
   align-self start
@@ -103,6 +113,7 @@ p.question
 
 .next
   grid-column span 2
+  grid-area 2 / 1 / 3 / 3
 
 .messages
   grid-area 3 / 3 / 7 / 7
@@ -134,12 +145,64 @@ button
   font-size 1.1em
   height 60px
   text-transform uppercase
+  outline none
+  border none
   box-shadow -2px 2px 2px rgba(0, 0, 0, 0.2)
 
 button:disabled
-  box-shadow none
   background #d6d6d6
   color #939393
-  border none
 
 
+button::-moz-focus-inner
+  border: 0
+
+
+.modal
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height 100%
+  width 100%
+  background rgba(0, 0, 0, 0.4)
+  z-index 999
+  position fixed
+  left 0
+  top 0
+
+.info
+  position relative
+  background white
+  width 40%
+  padding 4em
+
+.close
+  position absolute
+  right 20px
+  top 20px
+
+#revert
+  text-align center
+
+  .revert-info
+    display grid
+    grid-gap 3em
+    grid-template-columns repeat(2, 1fr)
+    grid-template-rows repeat(2, 1fr)
+    position relative
+    background white
+    width 40%
+    padding 4em
+
+  h3
+    grid-column span 2
+    
+  h4
+    grid-column span 1
+    text-transform uppercase
+    color #32d2d2
+
+  .no
+    text-align right
+  .yes
+    text-align left
