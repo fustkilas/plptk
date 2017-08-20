@@ -4,33 +4,32 @@
       .quiz
 
 
-        .heading(v-if="questionIndex<9")
-          p {{ item.number }} / 9 
-          .nanobar(v-bind:style="{ width: nanobar + '%' }")
-          
+        .heading
+          p(v-if="questionIndex<9") {{ item.number }} / 9 
+          .nanobar(v-if="questionIndex<9" v-bind:style="{ width: nanobar + '%' }")
+
+        .main
         .visuals
-          img(v-bind:src="item.img")
-          div
-            p.score(v-if="questionIndex===9") {{ score }} / 9
-            // -
-              p.correctAnswers(v-if="questionIndex===9") {{ quiz.correctAnswers[quiz.locale] }}
+          img(v-bind:src="item.img" v-if="questionIndex<9")
+          .scoreboard(v-if="questionIndex===9")
+            p.score {{ score }} / 9
+            p.correctAnswers {{ quiz.correctAnswers[quiz.locale] }}
 
 
         .texts
-          .prelude
-            h2(v-if="questionIndex===9") {{ quiz.quote[quiz.locale] }}
+            .prelude
+              h2.quote(v-if="questionIndex===9") {{ quiz.quote[quiz.locale] }}
 
+              p {{ item.prelude[quiz.locale] }}
 
-            p {{ item.prelude[quiz.locale] }}
+              p.question {{ item.question[quiz.locale] }}
 
-            p.question {{ item.question[quiz.locale] }}
-
-          .ui(v-if="questionIndex<9")
-            button.nie(v-on:click="nie" v-bind:disabled="noDisabled" v-bind:style="{ background: noColor }") {{ quiz.ui.no[quiz.locale] }}
-            button.tak(v-on:click="tak" v-bind:disabled="yesDisabled" v-bind:style="{ background: yesColor }") {{ quiz.ui.yes[quiz.locale] }}
-            button.next(v-on:click="next" v-bind:disabled="nextDisabled") {{ quiz.ui.nextQ[quiz.locale] }}
-          .ui(v-else)
-            button.next(v-on:click="revert") {{ quiz.ui.playAgain[quiz.locale] }}
+            .ui(v-if="questionIndex<9")
+              button.nie(v-on:click="nie" v-bind:disabled="noDisabled" v-bind:style="{ background: noColor }") {{ quiz.ui.no[quiz.locale] }}
+              button.tak(v-on:click="tak" v-bind:disabled="yesDisabled" v-bind:style="{ background: yesColor }") {{ quiz.ui.yes[quiz.locale] }}
+              button.next(v-on:click="next" v-bind:disabled="nextDisabled") {{ quiz.ui.nextQ[quiz.locale] }}
+            .ui(v-else)
+              button.next(v-on:click="revert") {{ quiz.ui.playAgain[quiz.locale] }}
 
         .messages(v-if="displayToast")
           p.toast(v-if="good") {{ quiz.bravo[quiz.locale] }}
@@ -45,7 +44,7 @@
           
         #help.modal(v-if="showHelp")
           .info
-            h2 {{ quiz.help.title[quiz.locale] }} 
+            h3 {{ quiz.help.title[quiz.locale] }} 
             h3 {{ quiz.help.instructions[quiz.locale] }}
             p {{ quiz.help.blurb[quiz.locale] }}
             p {{ quiz.help.goodluck[quiz.locale] }}

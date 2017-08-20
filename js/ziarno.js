@@ -23,9 +23,9 @@ window.onload=function(){
             instructions: ["Instrukcja gry", "Instructions"],
             blurb: [
 
-                "Przeczytaj tekst ​i odpowiedz na pytanie, dotykając przycisku TAK lub NIE. Po udzieleniu odpowiedzi pokaże się rozwiązanie. Aby przejść​ do kolejnego pytania, ​dotknij przycisku​ NASTĘPNE PYTANIE. Pasek postępu ​na górze ekranu ​pokazuje, ile pytań ​pozostało do ukończenia gry. Jeśli chcesz zagrać od początku, ​dotknij ikonki (tutaj grafika ikonki)​znajdującej się w lewym dolnym rogu ekranu.",
+                "Przeczytaj tekst ​i odpowiedz na pytanie, dotykając przycisku TAK lub NIE. Po udzieleniu odpowiedzi pokaże się rozwiązanie. Aby przejść​ do kolejnego pytania, ​dotknij przycisku​ NASTĘPNE PYTANIE. Pasek postępu ​na górze ekranu ​pokazuje, ile pytań ​pozostało do ukończenia gry. Jeśli chcesz zagrać od początku, ​dotknij ikonki ⟲ ​znajdującej się w lewym dolnym rogu ekranu.",
 
-                "Read the text and answer the question by tapping YES or NO. The correct answer will then be displayed. To go to the next question, tap NEXT QUESTION. The progress bar at the top of the screen shows how many questions remain. To restart tap the icon (here the icon graphic) located in the bottom left corner of the screen."
+                "Read the text and answer the question by tapping YES or NO. The correct answer will then be displayed. To go to the next question, tap NEXT QUESTION. The progress bar at the top of the screen shows how many questions remain. To restart tap the icon ⟲ located in the bottom left corner of the screen."
 
             ],
             goodluck: [
