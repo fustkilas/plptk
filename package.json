@@ -1,0 +1,13 @@
+{
+  "name": "krux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "bundle-js": "browserify js/app.js > js/bundle.js",
+      "watch-js": "watchify js/app.js -o js/bundle.js",
+      "watch": "harp server & npm run watch-js"
+  },
+  "author": "Fust Kilas",
+  "license": "ISC"
+}
