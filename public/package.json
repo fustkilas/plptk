@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "bundle-js": "browserify js/app.js > js/bundle.js",
-      "watch-js": "watchify js/app.js -o js/bundle.js",
-      "watch": "harp server & npm run watch-js"
+    "bundle-js": "browserify js/app.js > js/bundle.js",
+    "watch-js": "watchify js/app.js -o js/bundle.js",
+    "watch": "harp server & npm run watch-js"
   },
   "author": "Fust Kilas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^4.10.0",
+    "d3-cloud": "^1.2.4",
+    "lodash": "^4.17.4"
+  }
 }
