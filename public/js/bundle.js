@@ -40,8 +40,8 @@ layout.start();
 
 function draw(words) {
   d3.select("#cloud").append("svg")
-      .attr("width", width)
-      .attr("height", height)
+      .attr("width", width-100)
+      .attr("height", height-100)
     .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     .selectAll("text")
