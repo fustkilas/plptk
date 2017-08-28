@@ -6,11 +6,11 @@ html(lang='en')
     meta(name='author', content='Fust Kilas')
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet") 
-    link(href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet")
+    link(rel="stylesheet" href="https://unpkg.com/tachyons@4.8.0/css/tachyons.min.css")
+    link(rel='stylesheet', href='/fonts/stylesheet.css')
     link(rel='stylesheet', href='/css/krux.css')
 
-  body
+  body.bg-moon-gray.near-black
     != yield
 
 
