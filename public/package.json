@@ -1,18 +1,14 @@
 {
-  "name": "krux",
+  "name": "plptk",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bundle-js": "browserify js/app.js > js/bundle.js",
-    "watch-js": "watchify js/app.js -o js/bundle.js",
+    "bundle-js": "browserify js/app.js > js/plptk.js",
+    "watch-js": "watchify js/app.js -o js/plptk.js",
     "watch": "harp server & npm run watch-js"
   },
-  "author": "Fust Kilas",
+  "author": "brud",
   "license": "ISC",
-  "dependencies": {
-    "d3": "^4.10.0",
-    "d3-cloud": "^1.2.4",
-    "lodash": "^4.17.4"
-  }
+  "dependencies": {}
 }

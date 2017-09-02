@@ -2,16 +2,14 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title Crux Box : Get to the Crux of the Matter
-    meta(name='author', content='Fust Kilas')
+    title plptk
+    meta(name='author', content='brudd')
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel="stylesheet" href="https://unpkg.com/tachyons@4.8.0/css/tachyons.min.css")
-    link(rel='stylesheet', href='/fonts/stylesheet.css')
-    link(rel='stylesheet', href='/css/krux.css')
+    link(rel='stylesheet', href='/css/plptk.css')
 
-  body.bg-moon-gray.near-black
+  body
     != yield
 
 
-    script(src='/js/bundle.js')
+    script(src='/js/plptk.js')
